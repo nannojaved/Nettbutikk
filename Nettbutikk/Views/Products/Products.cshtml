@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<Nettbutikk.Models.ProductsModel>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="~/css/products.css" />
+</head>
+<body>
+
+    <p><h1>Products</h1></p>
+    <hr />
+
+    @for (var i=0; i < Model.Count; i++)
+    {
+        <div class="responsive">
+            <div class="gallery">
+
+                <img src="@Url.Action("GetImage", new { id = @Html.ValueFor(ProductsModel => ProductsModel[i].ProductId)})" alt="Northern Lights" width="600" height="400">
+            
+            
+                <div class="desc">Kr @Html.DisplayFor(ProductsModel => ProductsModel[i].ProductPrice)</div>
+            </div>
+        </div>
+    }
+
+<!--
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="img_forest.jpg">
+                    <img src="img_forest.jpg" alt="Forest" width="600" height="400">
+                </a>
+                <div class="desc">Add a description of the image here</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="img_lights.jpg">
+                    <img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
+                </a>
+                <div class="desc">Add a description of the image here</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="img_mountains.jpg">
+                    <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
+                </a>
+                <div class="desc">Add a description of the image here</div>
+            </div>
+        </div>
+    -->
+
+    </body>
+</html>
+
+
+

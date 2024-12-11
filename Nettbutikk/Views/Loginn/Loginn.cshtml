@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Nettbutikk.Models.LoginnModel
+
+@{
+   
+
+}
+@Html.Raw(ViewBag.msg)
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h1>login</h1>
+    <form>
+        <p>
+            <span>Brukernavn<label>*</label></span>
+            <br />
+            @Html.EditorFor(LoginnModel => LoginnModel.Username, new {@htmlattributes = new {@class = "control-form"}})
+        </p>
+
+        <p>
+            <span>Passord<label>*</label></span>
+            <br />
+            @Html.EditorFor(LoginnModel => LoginnModel.Password, new { @htmlattributes = new { @class = "control-form" } })
+        </p>
+
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+    </form>
+}
